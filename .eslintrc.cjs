@@ -1,31 +1,43 @@
-module.exports = {
+// @ts-check
+const { defineConfig } = require('eslint-define-config')
+
+module.exports = defineConfig({
+  root: true,
   env: {
     browser: true,
     node: true,
     es2021: true,
   },
-  extends: [
-    'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
-    'standard-with-typescript',
-    'prettier',
-    'plugin:@typescript-eslint/recommended',
-  ],
-  overrides: [],
-  parser: '@typescript-eslint/parser',
+  extends: ['eslint:recommended', 'prettier'],
+  plugins: ['prettier'],
   parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
-    ecmaVersion: 'latest',
     sourceType: 'module',
-    project: './tsconfig.json',
+    ecmaVersion: 2021,
   },
-  plugins: ['react'],
-  rules: {
-    'react/react-in-jsx-scope': 'off',
-    '@typescript-eslint/no-floating-promises': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/no-confusing-void-expression': 'off',
-  },
-}
+  rules: {},
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      extends: [
+        'plugin:react/recommended',
+        'plugin:react/jsx-runtime',
+        'plugin:react-hooks/recommended',
+        'plugin:@typescript-eslint/eslint-recommended',
+        'plugin:@typescript-eslint/recommended',
+      ],
+      plugins: ['@typescript-eslint', 'react'],
+      parser: '@typescript-eslint/parser',
+      rules: {
+        'react/react-in-jsx-scope': 'off',
+        '@typescript-eslint/no-floating-promises': 'off',
+        '@typescript-eslint/explicit-function-return-type': 'off',
+        '@typescript-eslint/no-confusing-void-expression': 'off',
+      },
+      settings: {
+        react: {
+          version: 'detect',
+        },
+      },
+    },
+  ],
+})
