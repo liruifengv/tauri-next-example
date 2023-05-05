@@ -6,3 +6,5 @@ node_modules
 *.yml
 *.conf.js
 src-tauri
+.next
+.vscode

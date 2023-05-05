@@ -5,3 +5,5 @@ node_modules
 *.mjs
 src-tauri
 *.d.ts
+.next
+.vscode
