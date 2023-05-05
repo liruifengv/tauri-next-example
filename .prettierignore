@@ -5,3 +5,4 @@ node_modules
 *.yaml
 *.yml
 *.conf.js
+src-tauri

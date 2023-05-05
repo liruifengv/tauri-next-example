@@ -3,3 +3,4 @@ node_modules
 .github
 *.config.js
 *.mjs
+src-tauri
