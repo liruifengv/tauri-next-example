@@ -1,4 +1,4 @@
-name: CI-Astro
+name: CI-Next
 
 on:
   push:

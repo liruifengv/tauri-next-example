@@ -4,3 +4,4 @@ node_modules
 *.config.js
 *.mjs
 src-tauri
+*.d.ts
